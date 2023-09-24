@@ -6,6 +6,8 @@ build-prod:
 	go build -ldflags "-w" -o bin/portfolio cmd/portfolio/main.go
 	du -h bin/portfolio
 
+build-prod-run: build-prod run-prod
+
 run-prod:
 	kill -9 $(shell pgrep portfolio); bin/portfolio&
 
