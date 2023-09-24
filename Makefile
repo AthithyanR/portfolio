@@ -19,4 +19,4 @@ dev:
 	go run cmd/portfolio/main.go
 
 sync:
-	rsync -uhvrP . admin@ec2-server:~/code/portfolio --delete-after --exclude 'bin/*' --exclude 'db/*'
+	rsync -uhvrP . admin@ec2-server:~/code/portfolio --delete-after --exclude 'bin/*' --exclude 'db/*' --exclude '.*'
