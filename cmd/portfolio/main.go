@@ -5,11 +5,14 @@ import (
 	"log"
 	"os"
 
+	"github.com/AthithyanR/portfolio/internal/database"
 	"github.com/AthithyanR/portfolio/internal/routes"
 	"github.com/valyala/fasthttp"
 )
 
 func main() {
+	database.InitDB()
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"

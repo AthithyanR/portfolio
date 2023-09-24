@@ -5,6 +5,7 @@ import (
 	"log"
 	"time"
 
+	"github.com/AthithyanR/portfolio/internal/database"
 	"github.com/fasthttp/router"
 	realip "github.com/ferluci/fast-realip"
 	"github.com/valyala/fasthttp"
@@ -47,7 +48,7 @@ func addNewMessage(ctx *fasthttp.RequestCtx) {
 		return
 	}
 
-	chatMessage := ChatMessage{
+	chatMessage := database.ChatMessage{
 		Ip:      realip.FromRequest(ctx),
 		Name:    name,
 		Message: message,
@@ -63,7 +64,7 @@ func addNewMessage(ctx *fasthttp.RequestCtx) {
 	tmpl := template.Must(template.ParseFiles(templatesDir + "/index.html"))
 
 	tmpl.ExecuteTemplate(ctx, "chatMessages", map[string]interface{}{
-		"chatMessages": []ChatMessage{chatMessage},
+		"chatMessages": []database.ChatMessage{chatMessage},
 	})
 }
 

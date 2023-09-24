@@ -8,8 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"gorm.io/driver/sqlite"
-	"gorm.io/gorm"
+	"github.com/AthithyanR/portfolio/internal/database"
 )
 
 // const (
@@ -19,12 +18,6 @@ import (
 type CatFact struct {
 	Fact   string `json:"fact"`
 	Length int64  `json:"length"`
-}
-
-type ChatMessage struct {
-	Ip      string
-	Name    string
-	Message string
 }
 
 func GetTechIKnow() string {
@@ -86,35 +79,15 @@ func GetCatFact() string {
 	return catFacts[rand.Intn(len(catFacts))].Fact
 }
 
-func GetChatMessages() []ChatMessage {
-	chatMessages := []ChatMessage{}
+func GetChatMessages() []database.ChatMessage {
+	chatMessages := []database.ChatMessage{}
 
-	db, err := gorm.Open(sqlite.Open("db/sqlite.db"), &gorm.Config{})
-
-	if err != nil {
-		log.Println(err)
-		return chatMessages
-	}
-
-	db.AutoMigrate(&ChatMessage{})
-	// db.Create(&ChatMessages{
-	// 	Ip:      "127.0.0.1",
-	// 	Name:    "Athithyan",
-	// 	Message: "Hello sqlite3",
-	// })
-
-	db.Find(&chatMessages)
+	database.DB.Find(&chatMessages)
 
 	return chatMessages
 }
 
-func CreateChatMessage(chatMessage *ChatMessage) error {
-	db, err := gorm.Open(sqlite.Open("db/sqlite.db"), &gorm.Config{})
-	if err != nil {
-		log.Println(err)
-		return err
-	}
-
-	db.Create(chatMessage)
+func CreateChatMessage(chatMessage *database.ChatMessage) error {
+	database.DB.Create(chatMessage)
 	return nil
 }
