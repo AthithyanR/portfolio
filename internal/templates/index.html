@@ -13,7 +13,6 @@
     <script src="/static/js/index.js"></script>
 
     <title>Athi's website</title>
-
 </head>
 
 <body>
@@ -60,8 +59,9 @@
                     {{ end }}
                     {{ end }}
                 </section>
-                <form class="message-form" hx-post="/new-message" hx-target="#chat-messages" hx-swap="beforeend">
-                    <input class="name" name="name" placeholder="Enter your name" required />
+                <form class="message-form" hx-post="/new-message" hx-target="#chat-messages" hx-swap="beforeend"
+                    hx-on::after-request="this.reset()">
+                    <input class=" name" name="name" placeholder="Enter your name" required />
                     <input class="message" name="message" placeholder="Enter your message" required />
                     <button type="submit">send</button>
                 </form>
