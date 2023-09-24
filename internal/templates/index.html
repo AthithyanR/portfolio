@@ -60,16 +60,16 @@
                     {{ end }}
                     {{ end }}
                 </section>
-                <form class="message-form" hx-post="/new-message" hx-target="#chat-messages" hx-swap="beforeend"
-                
-                >
-                    <input name="name" placeholder="Enter your name" required />
-                    <input name="message" placeholder="Enter your message" required />
+                <form class="message-form" hx-post="/new-message" hx-target="#chat-messages" hx-swap="beforeend">
+                    <input class="name" name="name" placeholder="Enter your name" required />
+                    <input class="message" name="message" placeholder="Enter your message" required />
                     <button type="submit">send</button>
                 </form>
             </div>
         </section>
     </main>
 </body>
-<!-- hx-on::after-request="this.reset()" -->
+
 </html>
+
+<!-- hx-on::after-request="this.reset()" -->

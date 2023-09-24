@@ -42,14 +42,13 @@ main {
     display: flex;
     justify-content: space-around;
 
-    input {
-        :nth-child(1) {
-            width: 25%;
-        }
-        :nth-child(2) {
-            width: 65%;
-            margin-left: 4px;
-        }
+    .name {
+        width: 25%;
+    }
+
+    .message {
+        width: 65%;
+        margin-left: 4px;
     }
 
     button {
