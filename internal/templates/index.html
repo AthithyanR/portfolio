@@ -5,31 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/static/favicon.ico" />
-
-    <link href=" https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css " rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <script src="https://unpkg.com/htmx.org@1.9.6/dist/htmx.min.js"></script>
-    <script src="/static/js/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <!-- <link rel="stylesheet" href="/static/css/styles.css"> -->
+    <!-- <script src="/static/js/index.js"></script> -->
 
     <title>Athi's website</title>
 </head>
 
 <body>
-    <main>
+    <main class="container-fluid">
         <section>
             <article>
                 <figure class="athi-img">
                     <img src="/static/img/athi.webp" loading="lazy" />
                     <figcaption>Hello I'm Athithyan, and this is my website.</figcaption>
                 </figure>
-            </article>
-            <br />
-            <article>
-                <p>
-                    I'm a Full stack software engineer, familiar with technologies like
-                <p>- {{ .techIKnow }}.</p>
-                </p>
+                <p>I'm a Full stack software engineer</p>
+                <p>familiar with technologies:</p>
+                <ul>
+                    <li>Next.js / React</li>
+                    <li>Node.js</li>
+                    <li>Sql / No-Sql databases</li>
+                    <li>AWS</li>
+                </ul>
+                <p>familiar with languages:</p>
+                <ul>
+                    <li>Typescript</li>
+                    <li>Golang</li>
+                    <li>Rust</li>
+                </ul>
                 <br />
                 <p>Resume: <a href="/static/resume.pdf" target="_blank">Click to view</a></p>
                 <br />
@@ -44,32 +48,9 @@
                     <li>Email - athithyanr4@gmail.com</li>
                 </ul>
                 <br />
-                <!-- <p>Here's a Cat fact for you - {{ .catFact }}</p> -->
             </article>
         </section>
-        <!-- <section>
-            <div id="chat-box" class="chat-box">
-                <section id="chat-messages" class="chat-messages">
-                    {{ block "chatMessages" .}}
-                    {{ range .chatMessages }}
-                    <div class="chat-message">
-                        <p>Name: {{ .Name }}</p>
-                        <p>Message: {{ .Message }}</p>
-                    </div>
-                    {{ end }}
-                    {{ end }}
-                </section>
-                <form class="message-form" hx-post="/new-message" hx-target="#chat-messages" hx-swap="beforeend"
-                    hx-on::after-request="this.reset()">
-                    <input class=" name" name="name" placeholder="Enter your name" required />
-                    <input class="message" name="message" placeholder="Enter your message" required />
-                    <button type="submit">send</button>
-                </form>
-            </div>
-        </section> -->
     </main>
 </body>
 
 </html>
-
-<!-- hx-on::after-request="this.reset()" -->
