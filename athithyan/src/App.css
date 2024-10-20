@@ -1,4 +1,7 @@
-body {
-  background-color: black;
-  color: white;
+main {
+  width: 400px;
+}
+
+figure {
+  margin: 0;
 }
